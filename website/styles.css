@@ -434,7 +434,7 @@ a { color: inherit; text-decoration: none; }
   gap: 16px;
   width: max-content;
   padding: 4px 0;
-  animation: filmstripScroll 55s linear infinite;
+  animation: filmstripScroll 130s linear infinite;
 }
 .filmstrip-outer:hover .filmstrip-track { animation-play-state: paused; }
 @keyframes filmstripScroll {
