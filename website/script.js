@@ -15,6 +15,11 @@ mainNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
+const filmstripTrack = document.getElementById('filmstripTrack');
+if (filmstripTrack) {
+  filmstripTrack.innerHTML += filmstripTrack.innerHTML;
+}
+
 const rotateWord = document.getElementById('rotateWord');
 if (rotateWord) {
   const phrases = ['tell your story', 'scale your startup', 'grow your business', 'build your brand', 'win new customers', 'earn real trust', 'convert more visitors'];
