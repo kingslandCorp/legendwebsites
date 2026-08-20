@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +25,8 @@
     <nav class="main-nav" aria-label="Primary">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-primary btn-sm header-cta">Let's Talk</a>
@@ -42,7 +43,7 @@
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Web design &amp; development</p>
-        <h1>Websites built to bring in <span class="pop">customers</span>, not just look nice.</h1>
+        <h1>Bespoke websites built to <span class="rotate-word" id="rotateWord">tell your story</span>.</h1>
         <p class="hero-lede">We design and build fast, modern websites for local businesses and ambitious ideas — from online booking and payments to full brand redesigns. Have a look at what we've shipped, then let's talk about yours.</p>
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">See Our Work</a>
@@ -51,11 +52,38 @@
         <ul class="hero-stats">
           <li><strong>6+</strong><span>live projects</span></li>
           <li><strong>100%</strong><span>mobile-ready</span></li>
+          <li><strong>Edge</strong><span>Cloudflare-hosted, fast by default</span></li>
           <li><strong>Direct</strong><span>no agency layers</span></li>
         </ul>
+
+        <form class="quickform" id="heroQuickform">
+          <p class="quickform-title">Get a free, no-obligation quote</p>
+          <div class="quickform-row">
+            <label class="sr-only" for="qfName">Your name</label>
+            <input id="qfName" type="text" name="name" placeholder="Your name" required>
+            <label class="sr-only" for="qfContact">Email or phone</label>
+            <input id="qfContact" type="text" name="contact" placeholder="Email or phone" required>
+          </div>
+          <label class="sr-only" for="qfNeed">What do you need?</label>
+          <input id="qfNeed" type="text" name="need" placeholder="What do you need? (e.g. new site, redesign, booking system)">
+          <button type="submit" class="btn btn-primary btn-block">Get My Free Quote</button>
+        </form>
       </div>
       <div class="hero-visual">
         <img src="assets/hero-logo.png" alt="Legend Website Design" class="hero-logo-img">
+      </div>
+    </div>
+  </section>
+
+  <section class="trustbar">
+    <div class="wrap">
+      <p class="trustbar-label">Trusted by real, live businesses</p>
+      <div class="trustbar-logos">
+        <img src="assets/vale-logo.png" alt="Vale Reflexology">
+        <img src="assets/barn-logo.png" alt="Kingsland Barn">
+        <img src="assets/brewbuddies-logo.png" alt="Brew Buddies">
+        <img src="assets/square3-logo.png" alt="Square³">
+        <img src="assets/snowbuddy-logo.svg" alt="SnowBuddy">
       </div>
     </div>
   </section>
@@ -97,6 +125,36 @@
     </div>
   </section>
 
+  <section class="different">
+    <div class="hero-glow hero-glow-different" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow center">Our approach</p>
+      <h2 class="section-title center">What Makes Us Different</h2>
+      <div class="different-grid">
+        <div class="different-card">
+          <span class="different-num">01</span>
+          <h3>Real Working Previews, Not Mockups</h3>
+          <p>Every project you see in the work section below is a live, clickable site — not a flat image. You see and use the real thing before anything's agreed.</p>
+        </div>
+        <div class="different-card">
+          <span class="different-num">02</span>
+          <h3>Direct Line to the Builder</h3>
+          <p>No account managers, no handoffs between departments. You talk directly to the person who's actually building your site, start to finish.</p>
+        </div>
+        <div class="different-card">
+          <span class="different-num">03</span>
+          <h3>Fast by Default</h3>
+          <p>Every site is deployed to Cloudflare's global edge network — genuinely fast for visitors, wherever they are, without needing to think about it.</p>
+        </div>
+        <div class="different-card">
+          <span class="different-num">04</span>
+          <h3>Built Around What You Need</h3>
+          <p>No bloated templates or features you'll never use — booking, payments, or a full redesign, built specifically around what your business actually needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="work" id="work">
     <div class="wrap">
       <p class="eyebrow center">Recent work</p>
@@ -109,6 +167,7 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>valereflexology.com</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/vale-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Holistic reflexology practice</p>
               <img class="pc-logo" src="assets/vale-logo.png" alt="Vale Reflexology">
             </div>
@@ -116,6 +175,7 @@
           <div class="portfolio-meta">
             <h3>Vale Reflexology</h3>
             <p>A calm, booking-ready site for a reflexology practice, with online calendar booking built straight in.</p>
+            <p class="portfolio-result">Result: appointments come in through the site itself — no back-and-forth phone calls to get booked in.</p>
             <span class="portfolio-link">Visit live site ↗</span>
           </div>
         </a>
@@ -124,6 +184,7 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>kingslandbarn.co.uk</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/barn-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Luxury countryside holiday let</p>
               <img class="pc-logo pc-logo-badge" src="assets/barn-logo.png" alt="Kingsland Barn">
             </div>
@@ -131,6 +192,7 @@
           <div class="portfolio-meta">
             <h3>Kingsland Barn</h3>
             <p>A warm, editorial holiday-let site built to convert browsers into enquiries, not just look pretty.</p>
+            <p class="portfolio-result">Result: pricing, gallery and availability laid out so guests can decide fast — built around the enquiry journey, not just the aesthetics.</p>
             <span class="portfolio-link">Visit live site ↗</span>
           </div>
         </a>
@@ -139,6 +201,7 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>brew-buddies.com</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/brewbuddies-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Coffee-roulette community app</p>
               <img class="pc-logo" src="assets/brewbuddies-logo.png" alt="Brew Buddies">
             </div>
@@ -154,6 +217,7 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>snowbuddy.co.uk</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/snowbuddy-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Live snow forecasts</p>
               <div class="pc-lockup">
                 <img class="pc-logo pc-logo-icon" src="assets/snowbuddy-logo.svg" alt="">
@@ -172,6 +236,7 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>square3.co.uk</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/square3-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Strategy platform &amp; consultancy</p>
               <img class="pc-logo pc-logo-badge" src="assets/square3-logo.png" alt="Square³">
             </div>
@@ -187,17 +252,41 @@
           <div class="browser-frame">
             <div class="browser-chrome"><span></span><span></span><span></span><em>myvillagedecor.legendwebsites.co.uk</em></div>
             <div class="browser-body">
+              <img class="pc-shot-img" src="assets/myvillagedecor-tall.jpg" alt="" loading="lazy">
               <p class="pc-eyebrow">Redesign concept &middot; pitch</p>
               <img class="pc-logo" src="assets/myvillagedecor-logo.png" alt="My Village Decor">
             </div>
           </div>
           <div class="portfolio-meta">
-            <h3>My Village Decor <span class="tag">Concept</span></h3>
+            <h3>My Village Decor <span class="tag">Concept</span> <span class="tag tag-new">Just shipped</span></h3>
             <p>A speculative rebuild of a local painter's site — brand-matched, real photos, built to win the pitch.</p>
+            <p class="portfolio-result">Result: a real, working preview the owner can click through — not a static mockup — built to demonstrate the improvement before anything's agreed.</p>
             <span class="portfolio-link">View concept ↗</span>
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="reviews">
+    <div class="wrap">
+      <p class="eyebrow center">What clients say</p>
+      <h2 class="section-title center">Sample testimonials</h2>
+      <p class="section-note center">Placeholder quotes — real client testimonials will replace these as they come in.</p>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card">
+          <p>"Quick to respond, easy to work with, and the finished site was exactly what we asked for — and more."</p>
+          <cite>— sample testimonial</cite>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          <p>"We had no idea what we wanted going in. It showed us a working preview before we'd agreed to anything, which made the decision easy."</p>
+          <cite>— sample testimonial</cite>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          <p>"Fast, direct, no account managers or endless calls — just the person building the site, talking to us."</p>
+          <cite>— sample testimonial</cite>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -231,14 +320,65 @@
     </div>
   </section>
 
+  <section class="about-mini" id="about">
+    <div class="wrap about-mini-inner">
+      <div class="about-avatar" aria-hidden="true">PD</div>
+      <div class="about-mini-copy">
+        <p class="eyebrow">Who's behind this</p>
+        <h2 class="section-title">Built by a person, not a faceless agency.</h2>
+        <p>Legend Website Design is run by Pedro. Every project on this page was designed and built directly, end to end — no account managers, no handoffs. When you email, you're talking to the person who'll actually build your site.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <p class="eyebrow center">Questions</p>
+      <h2 class="section-title center">Before you ask</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How much does a website cost?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <p>Every project gets a fixed quote based on what you actually need — a simple site costs a lot less than one with booking and payments built in. Get in touch for a free, no-obligation quote before anything's agreed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does it take?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <p>Most small business sites go from first chat to live site in a couple of weeks, depending on scope and how quickly we get your content and feedback.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you handle hosting?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <p>Yes — every site is deployed on Cloudflare's global network, fast by default, with hosting handled for you as part of the build.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you redesign my existing site?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <p>Yes — that's exactly what the My Village Decor project in the work section is: a full redesign concept built as a real, working preview before anything's agreed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if I need changes after launch?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <p>Ongoing updates and support are available whenever you need them — you deal directly with whoever built your site, not a support queue.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="hero-glow hero-glow-contact" aria-hidden="true"></div>
     <div class="wrap contact-inner">
       <p class="eyebrow">Got a project in mind?</p>
       <h2 class="section-title">Let's build something that actually works for your business.</h2>
       <p class="contact-lede">Whether it's a brand-new site or bringing a tired one up to scratch, we'd love to hear about it. Drop us a line and we'll get back to you within a day.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="contact-form-row">
+          <label class="sr-only" for="cfName">Your name</label>
+          <input id="cfName" type="text" name="name" placeholder="Your name" required>
+          <label class="sr-only" for="cfContact">Email or phone</label>
+          <input id="cfContact" type="text" name="contact" placeholder="Email or phone" required>
+        </div>
+        <label class="sr-only" for="cfMessage">Tell us about your project</label>
+        <textarea id="cfMessage" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+        <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
+      </form>
       <div class="contact-actions">
-        <a href="mailto:support@legendwebsites.co.uk?subject=New%20project%20enquiry" class="btn btn-primary">Email support@legendwebsites.co.uk</a>
+        <a href="mailto:support@legendwebsites.co.uk?subject=New%20project%20enquiry" class="btn btn-outline">Or email support@legendwebsites.co.uk directly</a>
         <a href="#work" class="btn btn-outline">Browse the work again</a>
       </div>
     </div>
