@@ -17,7 +17,7 @@ mainNav.querySelectorAll('a').forEach((link) => {
 
 const rotateWord = document.getElementById('rotateWord');
 if (rotateWord) {
-  const phrases = ['tell your story', 'scale your startup', 'grow your business', 'build your brand'];
+  const phrases = ['tell your story', 'scale your startup', 'grow your business', 'build your brand', 'win new customers', 'earn real trust', 'convert more visitors'];
   let phraseIndex = 0;
   setInterval(() => {
     rotateWord.classList.add('is-swapping');
