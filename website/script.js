@@ -34,15 +34,30 @@ if (rotateWord) {
   }, 2600);
 }
 
-const ENQUIRY_EMAIL = 'support@legendwebsites.co.uk';
+async function sendEnquiry(form, fields) {
+  const button = form.querySelector('button[type="submit"]');
+  const originalText = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Sending…';
 
-function sendAsMailto(fields) {
-  const subject = encodeURIComponent('New project enquiry');
-  const bodyLines = Object.entries(fields)
-    .filter(([, value]) => value && value.trim())
-    .map(([label, value]) => `${label}: ${value.trim()}`);
-  const body = encodeURIComponent(bodyLines.join('\n'));
-  window.location.href = `mailto:${ENQUIRY_EMAIL}?subject=${subject}&body=${body}`;
+  try {
+    const res = await fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fields),
+    });
+    if (!res.ok) throw new Error('Request failed');
+    button.textContent = 'Sent — thank you!';
+    form.reset();
+    setTimeout(() => {
+      button.disabled = false;
+      button.textContent = originalText;
+    }, 5000);
+  } catch (err) {
+    button.disabled = false;
+    button.textContent = originalText;
+    window.alert("Sorry, that didn't send — please email support@legendwebsites.co.uk directly.");
+  }
 }
 
 const heroQuickform = document.getElementById('heroQuickform');
@@ -50,10 +65,10 @@ if (heroQuickform) {
   heroQuickform.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(heroQuickform);
-    sendAsMailto({
-      Name: data.get('name'),
-      'Email/phone': data.get('contact'),
-      'What they need': data.get('need'),
+    sendEnquiry(heroQuickform, {
+      name: data.get('name'),
+      contact: data.get('contact'),
+      message: data.get('need'),
     });
   });
 }
@@ -63,10 +78,10 @@ if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(contactForm);
-    sendAsMailto({
-      Name: data.get('name'),
-      'Email/phone': data.get('contact'),
-      Message: data.get('message'),
+    sendEnquiry(contactForm, {
+      name: data.get('name'),
+      contact: data.get('contact'),
+      message: data.get('message'),
     });
   });
 }
