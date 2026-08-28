@@ -20,6 +20,11 @@ if (filmstripTrack) {
   filmstripTrack.innerHTML += filmstripTrack.innerHTML;
 }
 
+const testimonialScroll = document.getElementById('testimonialScroll');
+if (testimonialScroll) {
+  testimonialScroll.innerHTML += testimonialScroll.innerHTML;
+}
+
 const rotateWord = document.getElementById('rotateWord');
 if (rotateWord) {
   const phrases = ['tell your story', 'scale your startup', 'grow your business', 'build your brand', 'win new customers', 'earn real trust', 'convert more visitors'];
