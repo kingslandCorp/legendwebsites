@@ -21,8 +21,57 @@ if (filmstripTrack) {
 }
 
 const testimonialScroll = document.getElementById('testimonialScroll');
-if (testimonialScroll) {
+const testimonialOuter = document.querySelector('.testimonial-scroll-outer');
+if (testimonialScroll && testimonialOuter) {
   testimonialScroll.innerHTML += testimonialScroll.innerHTML;
+
+  const SPEED = 0.65; // px per frame, auto-advance pace
+  let isHovering = false;
+  let isDragging = false;
+  let dragPointerId = null;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+
+  function wrapScroll() {
+    const half = testimonialScroll.scrollWidth / 2;
+    if (testimonialOuter.scrollLeft >= half) testimonialOuter.scrollLeft -= half;
+    if (testimonialOuter.scrollLeft < 0) testimonialOuter.scrollLeft += half;
+  }
+
+  function tick() {
+    if (!isHovering && !isDragging) {
+      testimonialOuter.scrollLeft += SPEED;
+      wrapScroll();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  testimonialOuter.addEventListener('mouseenter', () => { isHovering = true; });
+  testimonialOuter.addEventListener('mouseleave', () => { isHovering = false; });
+
+  testimonialOuter.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return; // let touch use native scrolling
+    isDragging = true;
+    dragPointerId = e.pointerId;
+    dragStartX = e.clientX;
+    dragStartScroll = testimonialOuter.scrollLeft;
+    testimonialOuter.classList.add('is-dragging');
+    testimonialOuter.setPointerCapture(e.pointerId);
+  });
+  testimonialOuter.addEventListener('pointermove', (e) => {
+    if (!isDragging || e.pointerId !== dragPointerId) return;
+    testimonialOuter.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+  });
+  function endDrag(e) {
+    if (!isDragging || e.pointerId !== dragPointerId) return;
+    isDragging = false;
+    dragPointerId = null;
+    testimonialOuter.classList.remove('is-dragging');
+    wrapScroll();
+  }
+  testimonialOuter.addEventListener('pointerup', endDrag);
+  testimonialOuter.addEventListener('pointercancel', endDrag);
 }
 
 const rotateWord = document.getElementById('rotateWord');
