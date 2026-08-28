@@ -679,14 +679,9 @@ img, svg { max-width: 100%; }
 }
 .about-avatar {
   flex: none;
-  width: 88px; height: 88px;
+  width: 190px; height: 190px;
   border-radius: 50%;
-  background: var(--grad-brand);
-  color: #fff;
-  font-family: 'Sora', sans-serif;
-  font-weight: 800;
-  font-size: 1.6rem;
-  display: flex; align-items: center; justify-content: center;
+  object-fit: cover;
   box-shadow: 0 14px 30px -12px rgba(109,40,217,.5);
 }
 .about-mini-copy .section-title { margin-bottom: .3em; }
