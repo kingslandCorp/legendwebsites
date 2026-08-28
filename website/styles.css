@@ -43,6 +43,7 @@ h1, h2, h3 {
 
 p { margin: 0 0 1em; color: var(--text-soft); }
 a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; }
 
 .wrap { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 
@@ -283,7 +284,7 @@ a { color: inherit; text-decoration: none; }
 .services { padding: 44px 0; }
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
   gap: 22px;
   margin-top: 24px;
 }
@@ -338,7 +339,7 @@ a { color: inherit; text-decoration: none; }
   position: relative; z-index: 2;
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 22px;
 }
 .different-card {
@@ -465,7 +466,7 @@ a { color: inherit; text-decoration: none; }
 .portfolio-grid {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 26px;
 }
 .portfolio-card {
@@ -640,7 +641,7 @@ a { color: inherit; text-decoration: none; }
 .process-grid {
   margin-top: 28px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 30px;
   position: relative;
 }
