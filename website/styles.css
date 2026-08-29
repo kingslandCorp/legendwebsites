@@ -329,9 +329,9 @@ img, svg { max-width: 100%; }
 .different {
   position: relative;
   overflow: hidden;
-  background: var(--ink);
+  background: linear-gradient(to bottom, var(--ink) 0%, var(--violet) 35%, var(--violet) 82%, var(--paper) 100%);
   color: #fff;
-  padding: 44px 0;
+  padding: 44px 0 70px;
 }
 .hero-glow-different { inset: -20% -15% auto -15%; height: 130%; opacity: .7; }
 .different .section-title { color: #fff; position: relative; z-index: 2; }
