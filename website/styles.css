@@ -185,12 +185,6 @@ img, svg { max-width: 100%; }
 }
 .hero .eyebrow { color: #67e8f9; }
 .hero h1 { color: #fff; font-size: clamp(2.3rem, 4.6vw, 3.5rem); }
-.hero h1 .pop {
-  background: var(--grad-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 .rotate-word {
   display: inline-block;
   white-space: nowrap;
