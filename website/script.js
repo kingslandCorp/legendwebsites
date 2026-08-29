@@ -77,6 +77,30 @@ if (testimonialScroll && testimonialOuter) {
 const rotateWord = document.getElementById('rotateWord');
 if (rotateWord) {
   const phrases = ['tell your story', 'scale your startup', 'grow your business', 'build your brand', 'win new customers', 'earn real trust', 'convert more visitors'];
+  const heroH1 = rotateWord.closest('h1');
+
+  // The heading now flows as one line (no forced <br>), so different phrase
+  // lengths wrap to different numbers of lines. Lock the heading's height to
+  // the tallest phrase's rendered height so rotation never shifts the page.
+  function lockHeroHeight() {
+    if (!heroH1) return;
+    const current = rotateWord.textContent;
+    heroH1.style.minHeight = '';
+    let maxHeight = 0;
+    phrases.forEach((phrase) => {
+      rotateWord.textContent = phrase;
+      maxHeight = Math.max(maxHeight, heroH1.getBoundingClientRect().height);
+    });
+    rotateWord.textContent = current;
+    heroH1.style.minHeight = `${maxHeight}px`;
+  }
+  lockHeroHeight();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(lockHeroHeight, 200);
+  });
+
   let phraseIndex = 0;
   setInterval(() => {
     rotateWord.classList.add('is-swapping');
