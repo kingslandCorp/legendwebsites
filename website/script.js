@@ -95,6 +95,11 @@ if (rotateWord) {
     heroH1.style.minHeight = `${maxHeight}px`;
   }
   lockHeroHeight();
+  // Re-measure once web fonts finish loading - an initial measurement taken
+  // while Sora is still using a fallback font can under-measure line wraps.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(lockHeroHeight);
+  }
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -108,6 +113,12 @@ if (rotateWord) {
       phraseIndex = (phraseIndex + 1) % phrases.length;
       rotateWord.textContent = phrases[phraseIndex];
       rotateWord.classList.remove('is-swapping');
+      // Cheap safety net: if this phrase ever renders taller than the
+      // locked height (e.g. a font/layout edge case), fix it immediately
+      // instead of letting the page shift.
+      if (heroH1 && heroH1.getBoundingClientRect().height > parseFloat(heroH1.style.minHeight || 0) + 0.5) {
+        lockHeroHeight();
+      }
     }, 350);
   }, 2600);
 }
