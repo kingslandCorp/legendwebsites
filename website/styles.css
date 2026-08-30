@@ -213,7 +213,7 @@ img, svg { max-width: 100%; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 14px rgba(167,90,255,.9)) drop-shadow(0 0 30px rgba(139,92,246,.7)) drop-shadow(0 2px 6px rgba(0,0,0,.85));
+  text-shadow: 0 0 8px rgba(167,90,255,.95), 0 0 18px rgba(167,90,255,.85), 0 0 36px rgba(139,92,246,.6), 0 2px 4px rgba(0,0,0,.9);
   transition: opacity .35s ease, transform .35s ease;
 }
 .rotate-word.is-swapping { opacity: 0; transform: translateY(10px); }
