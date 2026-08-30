@@ -209,11 +209,8 @@ img, svg { max-width: 100%; }
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-weight: 600;
-  background: var(--grad-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 8px rgba(167,90,255,.95), 0 0 18px rgba(167,90,255,.85), 0 0 36px rgba(139,92,246,.6), 0 2px 4px rgba(0,0,0,.9);
+  color: #c4b5fd;
+  text-shadow: 0 0 3px rgba(255,255,255,.9), 0 0 7px rgba(226,232,255,.55), 0 1px 3px rgba(0,0,0,.95);
   transition: opacity .35s ease, transform .35s ease;
 }
 .rotate-word.is-swapping { opacity: 0; transform: translateY(10px); }
