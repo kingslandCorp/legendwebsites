@@ -802,7 +802,19 @@ img, svg { max-width: 100%; }
   .hero-heading { grid-column: 1; grid-row: 1; white-space: normal; text-shadow: none; }
   .hero-visual { grid-column: 1; grid-row: 2; order: -1; max-width: 320px; margin: 0 auto; }
   .hero-copy { grid-column: 1; grid-row: 3; }
-  .hero-stats { gap: 22px; }
+  /* Phones: centre the hero copy to match the centred logo and section titles */
+  .hero-inner { padding: 30px 24px 28px; gap: 20px; }
+  .hero-heading { text-align: center; }
+  .hero-visual { max-width: 250px; }
+  .hero-copy { text-align: center; }
+  .hero-lede { margin-left: auto; margin-right: auto; font-size: 1.02rem; }
+  .hero-actions { justify-content: center; margin: 16px 0 22px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 12px; }
+  .hero-stats li { align-items: center; text-align: center; }
+  .quickform { margin-left: auto; margin-right: auto; }
+  .quickform-title { text-align: center; }
+  /* The connector line strikes through the "01" when the steps stack */
+  .process-grid::before { display: none; }
   .quickform-row { flex-direction: column; }
   .contact-form-row { flex-direction: column; }
   .about-mini-inner { flex-direction: column; text-align: center; }
