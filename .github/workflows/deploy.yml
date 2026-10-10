@@ -1,8 +1,9 @@
 name: Deploy to Cloudflare
 
 # Publishes the site every time main changes (and on demand from the Actions tab).
-# Needs two repository or organisation secrets: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
-# Until they exist the job just says so and finishes without failing.
+# Needs the repository secret CLOUDFLARE_DEPLOY_CLAUDE (a Cloudflare API token from the
+# "Edit Cloudflare Workers" template). The account ID isn't secret, so it lives here.
+# Until the token exists the job just says so and finishes without failing.
 on:
   push:
     branches: [main]
@@ -16,17 +17,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_CLAUDE }}
+      CLOUDFLARE_ACCOUNT_ID: 7490cee0a58ed4d84ab07c56ebab3fea
     steps:
       - uses: actions/checkout@v4
-      - name: Cloudflare secrets missing
-        if: env.CLOUDFLARE_API_TOKEN == '' || env.CLOUDFLARE_ACCOUNT_ID == ''
-        run: echo "::notice::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID secrets not set yet - skipping deploy."
+      - name: Cloudflare secret missing
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "::notice::CLOUDFLARE_DEPLOY_CLAUDE secret not set yet - skipping deploy."
       - uses: actions/setup-node@v4
-        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        if: env.CLOUDFLARE_API_TOKEN != ''
         with:
           node-version: 22
       - name: Deploy
-        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        if: env.CLOUDFLARE_API_TOKEN != ''
         run: npx --yes wrangler@4 deploy
